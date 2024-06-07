@@ -6,6 +6,10 @@ Welcome to Tenzies, a fun and addictive dice game built with React!
 
 Tenzies is a dice game where the objective is to roll the dice until all dice show the same number. It's a game of luck and strategy, perfect for a quick and fun distraction.
 
+## Try it out
+
+You can try it out [here](https://ten-zies.netlify.app/)
+
 ## Features
 
 - Simple and intuitive UI
