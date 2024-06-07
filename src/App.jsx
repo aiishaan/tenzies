@@ -1,14 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 import Confetti from "react-confetti"
 import Die from "./Die"
 
 export default function App() {
-    const [dice, setDice] = React.useState(allNewDice())
-    const [tenzies, setTenzies] = React.useState(false)
+    const [dice, setDice] = useState(allNewDice())
+    const [tenzies, setTenzies] = useState(false)
     
-    React.useEffect(() => {
+    useEffect(() => {
         const firstValue = dice[0].value
         const allHeld = dice.every(die => die.held)
         const allSameNumber = dice.every(die => die.value === firstValue)
