@@ -71,6 +71,7 @@ export default function App() {
             <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
             <div className="die-container">{diceElements}</div>
             <h1>{tenzies ? `You won in ${stepsPlayed} steps!` : `Steps played: ${stepsPlayed}`}</h1>
+            <br />
             <button className="roll-dice" onClick={rollUnheldDice}>
                 {tenzies ? "Reset Game" : "Roll"}
             </button>
