@@ -7,6 +7,8 @@ import Die from "./Die"
 export default function App() {
     const [dice, setDice] = useState(allNewDice())
     const [tenzies, setTenzies] = useState(false)
+
+    const [stepsPlayed, setStepsPlayed] = useState(0)
     
     useEffect(() => {
         const firstValue = dice[0].value
@@ -36,6 +38,8 @@ export default function App() {
 
     function rollUnheldDice() {
         if (!tenzies) {
+            setStepsPlayed(prevPlayed => prevPlayed+1)
+
             setDice((oldDice) => oldDice.map((die, i) =>
                 die.held ? 
                     die : 
@@ -44,6 +48,7 @@ export default function App() {
         } else {
             setDice(allNewDice())
             setTenzies(false)
+            setStepsPlayed(0)
         }
     }
 
@@ -65,6 +70,7 @@ export default function App() {
             <h1>Tenzies</h1>
             <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
             <div className="die-container">{diceElements}</div>
+            <h1>{tenzies ? `You won in ${stepsPlayed} steps!` : `Steps played: ${stepsPlayed}`}</h1>
             <button className="roll-dice" onClick={rollUnheldDice}>
                 {tenzies ? "Reset Game" : "Roll"}
             </button>
